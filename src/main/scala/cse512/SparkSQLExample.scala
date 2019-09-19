@@ -18,6 +18,8 @@ object SparkSQLExample {
       .getOrCreate()
 
     paramsParser(spark, args)
+    
+    println("THIS IS MY OWN FUNCTION: main")
 
     spark.stop()
   }
@@ -31,6 +33,7 @@ object SparkSQLExample {
 
     while (paramOffset <= args.length)
     {
+        println("THIS IS MY OWN FUNCTION: paramsParser while loop")
         if (paramOffset == args.length || args(paramOffset).toLowerCase.contains("query"))
         {
           // Turn in the previous query
@@ -55,6 +58,7 @@ object SparkSQLExample {
 
   private def queryLoader(spark: SparkSession, queryName:String, queryParams:String, outputPath: String): Unit =
   {
+    println("THIS IS MY OWN FUNCTION: queryLoader")
     var queryResult:Long = -1
     val queryParam = queryParams.split(" ")
     if (queryName.equalsIgnoreCase("RangeQuery"))
